@@ -1,5 +1,15 @@
+import os
+import sys
 import tkinter as tk
 from tkinter import PhotoImage, Toplevel
+
+def resource_path(relative_path): #To Add App Logo Bundled with exe and can retrive from it
+    try:
+        base_path = sys._MEIPASS
+    except AttributeError:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 # 0 - X
 # 1 - O
@@ -13,7 +23,8 @@ activeplayer = 0
 root = tk.Tk()
 root.title("Tic Tac Toe")
 root.resizable(width=False,height=False)
-icon = PhotoImage(file='tic-tac-toe_1191134.png')
+icon_path = resource_path('tic-tac-toe_1191134.png')
+icon = PhotoImage(file=icon_path)
 root.iconphoto(True, icon)
 
 lst2 = [tk.StringVar() for _ in range(9)]
