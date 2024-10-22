@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import Toplevel
+from tkinter import PhotoImage, Toplevel
 
 # 0 - X
 # 1 - O
@@ -13,6 +13,8 @@ activeplayer = 0
 root = tk.Tk()
 root.title("Tic Tac Toe")
 root.resizable(width=False,height=False)
+icon = PhotoImage(file='tic-tac-toe_1191134.png')
+root.iconphoto(True, icon)
 
 lst2 = [tk.StringVar() for _ in range(9)]
 def reset(): #Reset Function to reset after win or tie
